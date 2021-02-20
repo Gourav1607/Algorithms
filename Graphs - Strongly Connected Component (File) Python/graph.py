@@ -6,6 +6,7 @@
 
 from collections import defaultdict
 
+
 class Graph:
     def __init__(self, vertices=0):
         self.V = vertices

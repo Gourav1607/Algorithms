@@ -8,9 +8,9 @@
 #ifndef HEAP_H_
 #define HEAP_H_
 
-#define PARENT(i)		(i-1)/2
-#define LEFT(i)			(2*i)+1
-#define RIGHT(i)		(2*i)+2
+#define PARENT(i) (i - 1) / 2
+#define LEFT(i) (2 * i) + 1
+#define RIGHT(i) (2 * i) + 2
 
 #include "iostream"
 #include "cstdlib"
@@ -21,6 +21,7 @@ using namespace std;
 class heapsort
 {
 	int n, *data, length, nc;
+
 public:
 	heapsort();
 	void getdata();
@@ -32,92 +33,92 @@ public:
 	~heapsort();
 };
 
-heapsort :: heapsort()
+heapsort ::heapsort()
 {
-	length=n=nc=0;
-	data=NULL;
+	length = n = nc = 0;
+	data = NULL;
 }
 
-void heapsort :: getdata()
+void heapsort ::getdata()
 {
-	cout<<"\n Enter Number Of Elements : ";
-	cin>>n;
-	length=n-1;
-	data=new int[n];
-	cout<<" Enter Elements : ";
-	for(int i=0; i<n; i++)
-		cin>>data[i];
-	cout<<" Data Entered Successfully";
+	cout << "\n Enter Number Of Elements : ";
+	cin >> n;
+	length = n - 1;
+	data = new int[n];
+	cout << " Enter Elements : ";
+	for (int i = 0; i < n; i++)
+		cin >> data[i];
+	cout << " Data Entered Successfully";
 }
 
-void heapsort :: getdata(int total, int lower, int upper)
+void heapsort ::getdata(int total, int lower, int upper)
 {
-	n=total;
-	length=n-1;
-	data=new int[n];
-	for(int i=0; i<n; i++)
-		data[i]=lower + rand()%(upper-lower);
-	cout<<" Data Entered Successfully";
+	n = total;
+	length = n - 1;
+	data = new int[n];
+	for (int i = 0; i < n; i++)
+		data[i] = lower + rand() % (upper - lower);
+	cout << " Data Entered Successfully";
 }
 
-void heapsort :: sort()
+void heapsort ::sort()
 {
 	buildmaxheap();
-	for(int i=length; i>0; i--)
+	for (int i = length; i > 0; i--)
 	{
-		int temp=data[0];
-		data[0]=data[i];
-		data[i]=temp;
+		int temp = data[0];
+		data[0] = data[i];
+		data[i] = temp;
 
 		length--;
 		maxheapify(0);
 	}
 }
 
-void heapsort :: maxheapify(int i)
+void heapsort ::maxheapify(int i)
 {
-	int l=LEFT(i);
-	int r=RIGHT(i);
-	int largest=i;
-	if(LEFT(i)<=length && data[l]>data[largest])
+	int l = LEFT(i);
+	int r = RIGHT(i);
+	int largest = i;
+	if (LEFT(i) <= length && data[l] > data[largest])
 	{
-		largest=l;
+		largest = l;
 		nc++;
 	}
-	if(RIGHT(i)<=length && data[r]>data[largest])
+	if (RIGHT(i) <= length && data[r] > data[largest])
 	{
-		largest=r;
+		largest = r;
 		nc++;
 	}
 
-	if(largest!=i)
+	if (largest != i)
 	{
-		int temp=data[i];
-		data[i]=data[largest];
-		data[largest]=temp;
+		int temp = data[i];
+		data[i] = data[largest];
+		data[largest] = temp;
 		maxheapify(largest);
 	}
 }
 
-void heapsort :: buildmaxheap()
+void heapsort ::buildmaxheap()
 {
-	for(int i=PARENT(length); i>=0; i--)
+	for (int i = PARENT(length); i >= 0; i--)
 		maxheapify(i);
 }
 
-void heapsort :: display()
+void heapsort ::display()
 {
-	cout<<"\n Elements Are : ";
-	for(int i=0;i<n;i++)
+	cout << "\n Elements Are : ";
+	for (int i = 0; i < n; i++)
 	{
-		if(i%25==0)
-			cout<<endl;
-		cout<<setw(5)<<data[i];
+		if (i % 25 == 0)
+			cout << endl;
+		cout << setw(5) << data[i];
 	}
-	cout<<"\n Number Of Comparisons : "<<nc;
+	cout << "\n Number Of Comparisons : " << nc;
 }
 
-heapsort :: ~heapsort()
+heapsort ::~heapsort()
 {
 	delete[] data;
 }

@@ -10,19 +10,20 @@
 #include "cmath"
 using namespace std;
 
-int main() {
-	
-	int n=0;
-	cout<<" Enter number of Nodes : ";
-	cin>>n;
-			
+int main()
+{
+
+	int n = 0;
+	cout << " Enter number of Nodes : ";
+	cin >> n;
+
 	Graph mygraph(n);
 	mygraph.display();
 	mygraph.sdisplay();
-//	mygraph.components();
+	//	mygraph.components();
 	mygraph.scomponents();
 	mygraph.maxscon();
 
-	cout<<endl;
+	cout << endl;
 	return 0;
 }

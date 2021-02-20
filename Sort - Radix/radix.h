@@ -13,8 +13,10 @@
 #include "ctime"
 using namespace std;
 
-class radixsort{
+class radixsort
+{
 	int n, *data, max, nc;
+
 public:
 	radixsort();
 	void getdata();
@@ -24,78 +26,78 @@ public:
 	~radixsort();
 };
 
-radixsort :: radixsort()
+radixsort ::radixsort()
 {
-	n=nc=0;
-	max=-30000;
-	data=NULL;
+	n = nc = 0;
+	max = -30000;
+	data = NULL;
 }
 
-void radixsort :: getdata()
+void radixsort ::getdata()
 {
-	cout<<"\n Enter Number Of Elements : ";
-	cin>>n;
-	data=new int[n];
-	cout<<" Enter Elements : ";
-	for(int i=0; i<n; i++)
+	cout << "\n Enter Number Of Elements : ";
+	cin >> n;
+	data = new int[n];
+	cout << " Enter Elements : ";
+	for (int i = 0; i < n; i++)
 	{
-		cin>>data[i];
-		if(max<data[i])
-			max=data[i];
+		cin >> data[i];
+		if (max < data[i])
+			max = data[i];
 	}
-	cout<<" Data Entered Successfully";
+	cout << " Data Entered Successfully";
 }
 
-void radixsort :: getdata(int total, int lower, int upper)
+void radixsort ::getdata(int total, int lower, int upper)
 {
-	n=total;
-	data=new int[n];
-	for(int i=0; i<n; i++)
+	n = total;
+	data = new int[n];
+	for (int i = 0; i < n; i++)
 	{
-		data[i]=lower + rand()%(upper-lower);
-		if(max<data[i])
-					max=data[i];
+		data[i] = lower + rand() % (upper - lower);
+		if (max < data[i])
+			max = data[i];
 	}
-	cout<<" Data Entered Successfully";
+	cout << " Data Entered Successfully";
 }
 
-void radixsort :: sort()
+void radixsort ::sort()
 {
 	int *d = new int[n];
-	for(int i=0;i <n; i++)
-		d[i]=0;
+	for (int i = 0; i < n; i++)
+		d[i] = 0;
 
-	int div=1, ptr=0;
-	while(max >0)
+	int div = 1, ptr = 0;
+	while (max > 0)
 	{
-		for(int j=0; j<10; j++)
-			for(int i=0; i<n; i++)
-				if((data[i]/div)%10 == j)
+		for (int j = 0; j < 10; j++)
+			for (int i = 0; i < n; i++)
+				if ((data[i] / div) % 10 == j)
 				{
-					d[ptr++]=data[i];
+					d[ptr++] = data[i];
 					nc++;
 				}
-		ptr=0;
-		div*=10;
-		max/=10;
-		for(int i=0; i<n; i++)
-			data[i]=d[i];
+		ptr = 0;
+		div *= 10;
+		max /= 10;
+		for (int i = 0; i < n; i++)
+			data[i] = d[i];
 	}
 }
 
-void radixsort :: display()
+void radixsort ::display()
 {
-	cout<<"\n Elements Are : ";
-	for(int i=0;i<n;i++)
+	cout << "\n Elements Are : ";
+	for (int i = 0; i < n; i++)
 	{
-		if(i%25==0)
-			cout<<endl;
-		cout<<setw(5)<<data[i];
+		if (i % 25 == 0)
+			cout << endl;
+		cout << setw(5) << data[i];
 	}
-	cout<<"\n Number Of Comparisons : "<<nc;
+	cout << "\n Number Of Comparisons : " << nc;
 }
 
-radixsort :: ~radixsort()
+radixsort ::~radixsort()
 {
 	delete[] data;
 }

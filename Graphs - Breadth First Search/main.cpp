@@ -13,9 +13,11 @@ int main()
 	mygraph graph;
 	graph.create();
 	char ch;
-	do{
+
+	do
+	{
 		graph.bfs();
-		cout<<"\n Do You Want To Continue (Y/N) : ";
-		cin>>ch;
-	}while(ch=='Y' || ch=='y');
+		cout << "\n Do You Want To Continue (Y/N) : ";
+		cin >> ch;
+	} while (ch == 'Y' || ch == 'y');
 }

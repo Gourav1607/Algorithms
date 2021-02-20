@@ -8,12 +8,14 @@
 #include "prim.h"
 using namespace std;
 
-int main() {
+int main()
+{
 	int choice = 1;
 	mygraph graph;
 	graph.create();
 
-	while (choice) {
+	while (choice)
+	{
 		cout << "\n Minimum Spanning Tree";
 		cout << "\n 01. Re-Enter Graph";
 		cout << "\n 02. Prim's Algorithm";
@@ -22,7 +24,8 @@ int main() {
 		cout << "\n 00. Exit";
 		cout << "\n Enter Choice ... ";
 		cin >> choice;
-		switch (choice) {
+		switch (choice)
+		{
 		case 0:
 			break;
 		case 1:

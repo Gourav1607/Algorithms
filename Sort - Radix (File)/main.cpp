@@ -8,27 +8,32 @@
 #include "fstream"
 using namespace std;
 
-int main() {
+int main()
+{
 	string name;
 	int id, age;
 	float salary;
 	vector<Employee> data;
 
 	ifstream fin("input.txt", ios::in);
-	if(fin.is_open()) {
-		while(fin>>name>>id>>age>>salary) {
+	if (fin.is_open())
+	{
+		while (fin >> name >> id >> age >> salary)
+		{
 			data.push_back(Employee(name, id, age, salary));
 		}
-	} else {
-		cout<<"\n Error opening the input file. Exiting.";
+	}
+	else
+	{
+		cout << "\n Error opening the input file. Exiting.";
 	}
 	fin.close();
 
 	Radix radix(data);
 	radix.print();
-	cout<<"\n Sorting ";
+	cout << "\n Sorting ";
 	radix.sort();
-	cout<<"\n Sorted ";
+	cout << "\n Sorted ";
 	radix.print();
 
 	return 0;

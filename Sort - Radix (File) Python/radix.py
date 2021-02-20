@@ -4,6 +4,7 @@
 
 from employee import Employee
 
+
 class Radix():
     def __init__(self):
         self.emp = []

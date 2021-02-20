@@ -32,6 +32,7 @@ class Graph:
     def __iter__(self):
         return iter(self.vertices.values())
 
+
 class Vertex:
     def __init__(self, key):
         self.key = key

@@ -4,6 +4,7 @@
 
 from graph import Graph
 
+
 class tsort:
     def __init__(self):
         self.graph = Graph()

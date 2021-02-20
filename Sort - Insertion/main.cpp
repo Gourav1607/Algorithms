@@ -12,7 +12,7 @@ int main()
 {
 	insertionsort array;
 	srand(time(NULL));
-	array.getdata(1000, 30, 1000+1);
+	array.getdata(1000, 30, 1000 + 1);
 	array.display();
 	array.sort();
 	array.display();

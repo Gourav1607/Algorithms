@@ -4,10 +4,12 @@
 
 from lcs import *
 
+
 def main():
     lcs = LCS()
     lcs.readInput('input.txt')
     lcs.genTable()
+
 
 if __name__ == "__main__":
     main()

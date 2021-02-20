@@ -36,9 +36,9 @@ class LCS():
                     m[i + 1][j + 1] = m[i + 1][j]
                     b[i + 1][j + 1] = -1  # left
 
-        print(" String 1 : " + self.str1, end = '')
-        print("\n String 2 : " + self.str2, end = '')
-        print("\n\n", end = '')
+        print(" String 1 : " + self.str1, end='')
+        print("\n String 2 : " + self.str2, end='')
+        print("\n\n", end='')
         for i, x in enumerate(self.str1):
             for j, y in enumerate(self.str2):
                 print(m[i][j], end='')

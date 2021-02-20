@@ -7,12 +7,13 @@
 #include "lcs.h"
 using namespace std;
 
-int main() {
+int main()
+{
 	LCS lcs(1);
 	lcs.gentable();
-	lcs.display();	
+	lcs.display();
 	lcs.printlcs();
-	
-	cout<<endl;
+
+	cout << endl;
 	return 0;
 }

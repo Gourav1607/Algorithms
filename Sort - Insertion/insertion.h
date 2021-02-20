@@ -16,6 +16,7 @@ using namespace std;
 class insertionsort
 {
 	int n, *data, nc;
+
 public:
 	insertionsort();
 	void getdata();
@@ -25,74 +26,74 @@ public:
 	~insertionsort();
 };
 
-insertionsort :: insertionsort()
+insertionsort ::insertionsort()
 {
-	n=nc=0;
-	data=NULL;
+	n = nc = 0;
+	data = NULL;
 }
 
-void insertionsort :: getdata()
+void insertionsort ::getdata()
 {
-	cout<<"\n Enter Number Of Elements : ";
-	cin>>n;
-	data=new int[n];
-	cout<<" Enter Elements : ";
-	for(int i=0; i<n; i++)
-		cin>>data[i];
-	cout<<" Data Entered Successfully";
+	cout << "\n Enter Number Of Elements : ";
+	cin >> n;
+	data = new int[n];
+	cout << " Enter Elements : ";
+	for (int i = 0; i < n; i++)
+		cin >> data[i];
+	cout << " Data Entered Successfully";
 }
 
-void insertionsort :: getdata(int total, int lower, int upper)
+void insertionsort ::getdata(int total, int lower, int upper)
 {
-	n=total;
-	data=new int[n];
-	for(int i=0; i<n; i++)
-		data[i]=lower + rand()%(upper-lower);
-	cout<<" Data Entered Successfully";
+	n = total;
+	data = new int[n];
+	for (int i = 0; i < n; i++)
+		data[i] = lower + rand() % (upper - lower);
+	cout << " Data Entered Successfully";
 }
 
-void insertionsort :: sort()
+void insertionsort ::sort()
 {
-	int key=0;
-	for(int i=1; i<n; i++)
+	int key = 0;
+	for (int i = 1; i < n; i++)
 	{
 		key = data[i];
-		int j=i-1;
-		while(j>=0 && key<data[j])
+		int j = i - 1;
+		while (j >= 0 && key < data[j])
 		{
-			data[j+1]=data[j];
+			data[j + 1] = data[j];
 			j--;
 		}
-		data[j+1]=key;
+		data[j + 1] = key;
 	}
-//	for(int i=0; i<n; i++)
-//	{
-//		for(int j=i+1; j>0; j--)
-//		{
-//			if(data[j]<data[j-1])
-//			{
-//				nc++;
-//				int temp=data[j];
-//				data[j]=data[j-1];
-//				data[j-1]=temp;
-//			}
-//		}
-//	}
+	//	for(int i=0; i<n; i++)
+	//	{
+	//		for(int j=i+1; j>0; j--)
+	//		{
+	//			if(data[j]<data[j-1])
+	//			{
+	//				nc++;
+	//				int temp=data[j];
+	//				data[j]=data[j-1];
+	//				data[j-1]=temp;
+	//			}
+	//		}
+	//	}
 }
 
-void insertionsort :: display()
+void insertionsort ::display()
 {
-	cout<<"\n Elements Are : ";
-	for(int i=0;i<n;i++)
+	cout << "\n Elements Are : ";
+	for (int i = 0; i < n; i++)
 	{
-		if(i%25==0)
-			cout<<endl;
-		cout<<setw(5)<<data[i];
+		if (i % 25 == 0)
+			cout << endl;
+		cout << setw(5) << data[i];
 	}
-	cout<<"\n Number Of Comparisons : "<<nc;
+	cout << "\n Number Of Comparisons : " << nc;
 }
 
-insertionsort :: ~insertionsort()
+insertionsort ::~insertionsort()
 {
 	delete[] data;
 }

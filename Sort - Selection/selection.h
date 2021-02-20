@@ -14,8 +14,10 @@
 
 using namespace std;
 
-class selectionsort{
+class selectionsort
+{
 	int n, *data, nc;
+
 public:
 	selectionsort();
 	void getdata();
@@ -25,67 +27,67 @@ public:
 	~selectionsort();
 };
 
-selectionsort :: selectionsort()
+selectionsort ::selectionsort()
 {
-	n=nc=0;
-	data=NULL;
+	n = nc = 0;
+	data = NULL;
 }
 
-void selectionsort :: getdata()
+void selectionsort ::getdata()
 {
-	cout<<"\n Enter Number Of Elements : ";
-	cin>>n;
-	data=new int[n];
-	cout<<" Enter Elements : ";
-	for(int i=0;i<n;i++)
-		cin>>data[i];
-	cout<<" Data Entered Successfully";
+	cout << "\n Enter Number Of Elements : ";
+	cin >> n;
+	data = new int[n];
+	cout << " Enter Elements : ";
+	for (int i = 0; i < n; i++)
+		cin >> data[i];
+	cout << " Data Entered Successfully";
 }
 
-void selectionsort :: getdata(int total, int lower, int upper)
+void selectionsort ::getdata(int total, int lower, int upper)
 {
-	n=total;
-	data=new int[n];
-	for(int i=0; i<n; i++)
-		data[i]=lower + rand()%(upper-lower);
-	cout<<" Data Entered Successfully";
+	n = total;
+	data = new int[n];
+	for (int i = 0; i < n; i++)
+		data[i] = lower + rand() % (upper - lower);
+	cout << " Data Entered Successfully";
 }
 
-void selectionsort :: sort()
+void selectionsort ::sort()
 {
-	int min=0;
-	for(int i=0; i<n; i++)
+	int min = 0;
+	for (int i = 0; i < n; i++)
 	{
-		min=i;
-		for(int j=i+1; j<n; j++)
-			if(data[j]<data[i])
+		min = i;
+		for (int j = i + 1; j < n; j++)
+			if (data[j] < data[i])
 			{
-				min=j;
+				min = j;
 				nc++;
 			}
-		if(i!=min)
+		if (i != min)
 		{
 			nc++;
-			int temp=data[i];
-			data[i]=data[min];
-			data[min]=temp;
+			int temp = data[i];
+			data[i] = data[min];
+			data[min] = temp;
 		}
 	}
 }
 
-void selectionsort :: display()
+void selectionsort ::display()
 {
-	cout<<"\n Elements Are : ";
-	for(int i=0;i<n;i++)
+	cout << "\n Elements Are : ";
+	for (int i = 0; i < n; i++)
 	{
-		if(i%25==0)
-			cout<<endl;
-		cout<<setw(5)<<data[i];
+		if (i % 25 == 0)
+			cout << endl;
+		cout << setw(5) << data[i];
 	}
-	cout<<"\n Number Of Comparisons : "<<nc;
+	cout << "\n Number Of Comparisons : " << nc;
 }
 
-selectionsort :: ~selectionsort()
+selectionsort ::~selectionsort()
 {
 	delete[] data;
 }

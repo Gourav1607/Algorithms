@@ -4,6 +4,7 @@
 
 from graph import Graph
 
+
 def main():
     graph = Graph('input.txt')
 #     print('Co-ordinates')
@@ -19,6 +20,7 @@ def main():
     graph.double_prim(parent)
     parent = graph.primMST()
     graph.printMST(parent)
+
 
 if __name__ == '__main__':
     main()

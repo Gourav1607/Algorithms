@@ -13,59 +13,72 @@
 #include "vector"
 using namespace std;
 
-class Tsort {
+class Tsort
+{
 private:
 	int **mat, size;
 	int *indegree;
+
 public:
-	Tsort() {
+	Tsort()
+	{
 		int n, *data;
 
-		cout<<" Enter Number of Nodes : ";
-		cin>>n;
-		data = new int[n*n];
+		cout << " Enter Number of Nodes : ";
+		cin >> n;
+		data = new int[n * n];
 
-		int i=0;
+		int i = 0;
 		ifstream fin("input.txt");
-		while(fin>>data[i] && i<n*n) {
+		while (fin >> data[i] && i < n * n)
+		{
 			i++;
 		}
 		fin.close();
 
 		size = sqrt(i);
-		mat = new int*[size];
+		mat = new int *[size];
 		indegree = new int[size];
-		for(i=0; i<size; i++) {
+		for (i = 0; i < size; i++)
+		{
 			mat[i] = new int[size];
 			indegree[i] = 0;
 		}
 
-		for(i=0; i<size; i++) {
-			for(int j=0; j<size; j++) {
-				mat[i][j] = data[i*size + j];
-				if (mat[i][j] > 0) {
+		for (i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				mat[i][j] = data[i * size + j];
+				if (mat[i][j] > 0)
+				{
 					indegree[j]++;
 				}
 			}
 		}
 	}
 
-	void display() {
-		cout<<" Adjacency Matrix : \n";
-		for(int i=0; i<size; i++) {
-			for(int j=0; j<size; j++) {
-				cout<<" "<<mat[i][j];
+	void display()
+	{
+		cout << " Adjacency Matrix : \n";
+		for (int i = 0; i < size; i++)
+		{
+			for (int j = 0; j < size; j++)
+			{
+				cout << " " << mat[i][j];
 			}
-			cout<<endl;
+			cout << endl;
 		}
 		cout << "\n Indegree : \n";
-		for(int i=0; i<size; i++) {
-			cout<<" "<<indegree[i];
+		for (int i = 0; i < size; i++)
+		{
+			cout << " " << indegree[i];
 		}
-		cout<<endl;
+		cout << endl;
 	}
 
-	void sort() {
+	void sort()
+	{
 		bool *visited = new bool[size];
 		for (int i = 0; i < size; i++)
 			visited[i] = false;
@@ -74,11 +87,15 @@ public:
 		sort(result, 0, visited);
 	}
 
-	void sort(int result[], int n, bool visited[]) {
+	void sort(int result[], int n, bool visited[])
+	{
 		bool flag = false;
-		for (int i = 0; i < size; i++) {
-			if (indegree[i] == 0 && !visited[i]) {
-				for (int j = 0; j < size; j++) {
+		for (int i = 0; i < size; i++)
+		{
+			if (indegree[i] == 0 && !visited[i])
+			{
+				for (int j = 0; j < size; j++)
+				{
 					if (mat[i][j] > 0)
 						indegree[j]--;
 				}
@@ -89,7 +106,8 @@ public:
 
 				visited[i] = false;
 				n--;
-				for (int j = 0; j < size; j++) {
+				for (int j = 0; j < size; j++)
+				{
 					if (mat[i][j] > 0)
 						indegree[j]++;
 				}
@@ -97,7 +115,8 @@ public:
 			}
 		}
 
-		if (!flag) {
+		if (!flag)
+		{
 			for (int i = 0; i < n; i++)
 				cout << " " << result[i];
 			cout << endl;

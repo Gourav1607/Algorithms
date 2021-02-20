@@ -5,6 +5,7 @@
 from math import sqrt
 import sys
 
+
 class Graph():
     def __init__(self, vertices=0):
         self.V = vertices

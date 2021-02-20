@@ -4,6 +4,7 @@
 
 from tsort import tsort
 
+
 def main():
     t = tsort()
     t.input_file()
@@ -11,6 +12,7 @@ def main():
     # t.display_edges()
     t.display_graph()
     t.display_sorting()
+
 
 if __name__ == '__main__':
     main()

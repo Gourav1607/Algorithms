@@ -7,12 +7,13 @@
 #include "tsort.h"
 using namespace std;
 
-int main() {
+int main()
+{
 
 	Tsort tsort;
 	tsort.display();
 	cout << "\n Topological Sequences : \n";
 	tsort.sort();
 
-    return 0;
+	return 0;
 }

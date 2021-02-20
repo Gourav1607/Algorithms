@@ -10,20 +10,20 @@ using namespace std;
 
 int main()
 {
-	int choice=1;
+	int choice = 1;
 	mygraph graph;
 	graph.create();
 	graph.prim();
-	while(choice)
+	while (choice)
 	{
-		cout<<"\n Minimum Spanning Tree";
-		cout<<"\n 01. Re-Enter Graph";
-		cout<<"\n 02. Prim's Algorithm";
-		cout<<"\n 03. Display";
-		cout<<"\n 00. Exit";
-		cout<<"\n Enter Choice ... ";
-		cin>>choice;
-		switch(choice)
+		cout << "\n Minimum Spanning Tree";
+		cout << "\n 01. Re-Enter Graph";
+		cout << "\n 02. Prim's Algorithm";
+		cout << "\n 03. Display";
+		cout << "\n 00. Exit";
+		cout << "\n Enter Choice ... ";
+		cin >> choice;
+		switch (choice)
 		{
 		case 0:
 			break;
@@ -37,7 +37,7 @@ int main()
 			graph.display();
 			break;
 		default:
-			cout<<" Enter Valid Option";
+			cout << " Enter Valid Option";
 		}
 	}
 	return 0;
